@@ -6,6 +6,5 @@ curl -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/web
   -H "Host: asiapacificcollege-my.sharepoint.com" `
   -H "Referer: https://asiapacificcollege-my.sharepoint.com/personal/ppjuguilon_student_apc_edu_ph/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fppjuguilon%5Fstudent%5Fapc%5Fedu%5Fph%2FDocuments%2Fdatasets%2Ftick%5Fphotos%2Ezip&parent=%2Fpersonal%2Fppjuguilon%5Fstudent%5Fapc%5Fedu%5Fph%2FDocuments%2Fdatasets" `
   -H "Upgrade-Insecure-Requests: 1" `
-  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0" `
   -o tick_photos.zip `
   "https://asiapacificcollege-my.sharepoint.com/personal/ppjuguilon_student_apc_edu_ph/_layouts/15/download.aspx?SourceUrl=/personal/ppjuguilon_student_apc_edu_ph/Documents/datasets/tick_photos.zip"
