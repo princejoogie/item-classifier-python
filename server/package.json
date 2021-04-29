@@ -1,0 +1,16 @@
+{
+  "name": "tick-classifier",
+  "version": "1.0.0",
+  "description": "dog tick classifier backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "Prince Carlo Juguilon",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

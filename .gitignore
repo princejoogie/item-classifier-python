@@ -1,2 +1,3 @@
-src/tf_files
+src/tf_files/
+server/node_modules/
 .vscode/

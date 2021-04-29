@@ -13,7 +13,7 @@ TENSORBOARD
 tensorboard --logdir tf_files/training_summaries &
 
 RETRAIN scripts
-$ARCHITECHTURE="mobilenet_0.50_224"
+$ARCHITECHTURE="mobilenet_0.50_224" or "inception_v3"
 - POWERSHELL
 python -m scripts.retrain `
   --bottleneck_dir=tf_files/bottlenecks `
