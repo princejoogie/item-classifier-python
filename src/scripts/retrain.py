@@ -95,7 +95,6 @@ from six.moves import urllib
 
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-
 import os
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 

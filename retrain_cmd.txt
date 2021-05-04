@@ -47,3 +47,5 @@ python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=tf_fil
 python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=tf_files/flower_photos/sunflowers/4890268276_563f40a193.jpg
 - tulips
 python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=tf_files/flower_photos/tulips/5891485349_cce7b99549.jpg
+- deer_tick
+python -m scripts.label_image --graph=tf_files/tick_graph.pb --image=tf_files\tick_photos\deer_tick\3.jpg --input_layer="Mul" --input_height=299 --input_width=299
