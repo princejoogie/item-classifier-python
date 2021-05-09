@@ -6,7 +6,7 @@ import os
 from IPython.display import Image, HTML, display
 
     
-root = "tf_files/flower_photos/"
+root = "tf_files/tick_photos/"
 with open(root+"/LICENSE.txt") as f:
     attributions = f.readlines()[4:]
 attributions = [line.split(' CC-BY') for line in attributions]
