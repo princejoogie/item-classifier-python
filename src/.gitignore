@@ -5,11 +5,3 @@ tf_files/*
 !tf_files/*.pb
 !tf_files/*.txt
 
-.idea/
-**/*~
-gradle*
-libs/
-local.properties
-android.iml
-.gradle/
-android/assets/*
