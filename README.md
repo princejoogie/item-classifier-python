@@ -13,7 +13,7 @@
 2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
 3. Open `retrain_cmd.txt` to see available commands.
 
-## Retraining
+## Retrain and Prediction
 
 1. Start tensorboard
 
