@@ -1,17 +1,16 @@
 # Tick Classifier Python Training
 
-## Setup Anaconda
+## Install python requirement with Anaconda
 
 1. `conda create -n tf python=3.8.8`
 2. `conda activate tf`
 3. cd into the repository
 4. `pip install -r requirements.txt`
 
-## Usage
+## Getting the tick dataset
 
 1. Download dataset with from [here](https://joog.uno/ticks_ds1)
 2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
-3. Open `retrain_cmd.txt` to see available commands.
 
 ## Retrain and Prediction
 
