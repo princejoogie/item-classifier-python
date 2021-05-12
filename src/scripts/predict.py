@@ -143,7 +143,7 @@ if __name__ == "__main__":
     cv.putText(edges, "3) Edge Detection", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-    cv.putText(result, "{} {:.4f}%".format(labels[top_k[0]], results[top_k[0]]), (10, 20),
+    cv.putText(result, "{} {:.4f}%".format(labels[top_k[0]], results[top_k[0]] * 100), (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
     cv.imshow('original', img)
