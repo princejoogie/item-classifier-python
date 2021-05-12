@@ -1,6 +1,6 @@
 # Tick Classifier Python Training
 
-## Install python requirement with Anaconda
+## Install python requirements with Anaconda
 
 1. `conda create -n tf python=3.8.8`
 2. `conda activate tf`
@@ -14,7 +14,7 @@
 
 ## Retrain and Prediction
 
-1. Start tensorboard
+1. `(Optional)` Start tensorboard
 
 ```{python}
 tensorboard --logdir tf_files/training_summaries &
