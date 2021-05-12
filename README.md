@@ -34,7 +34,7 @@ python -m scripts.retrain ^
   --bottleneck_dir=tf_files/bottlenecks ^
   --summaries_dir=tf_files/training_summaries/mobilenet_0.50_224 ^
   --how_many_training_steps=400 ^
-  --learning_rate=0.00
+  --learning_rate=0.001
 ```
 
 3. `(Optional)` Quantize the graph for better performance in javascript
