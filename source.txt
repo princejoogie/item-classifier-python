@@ -1,0 +1,9 @@
+SOURCE
+https://www.qwiklabs.com/focuses/1095
+
+REPO
+git clone https://github.com/googlecodelabs/tensorflow-for-poets-2
+
+FLOWER_IMAGES
+curl -o flower_photos.tgz "http://download.tensorflow.org/example_images/flower_photos.tgz"
+tar zxvf ./flower_photos.tgz
