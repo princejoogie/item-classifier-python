@@ -12,7 +12,7 @@
 1. Download dataset with from [here](https://joog.uno/ticks_ds1)
 2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
 
-## Retrain and Prediction
+## Retrain and Conversion
 
 1. `(Optional)` Start tensorboard
 
@@ -57,7 +57,7 @@ tensorflowjs_converter ^
   tf_files/web
 ```
 
-5. Run Prediction script
+## Prediction
 
 ```{python}
 python -m scripts.predict ^
