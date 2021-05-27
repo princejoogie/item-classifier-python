@@ -141,7 +141,7 @@ if __name__ == "__main__":
     cv.putText(gray3, "3) Grayscaled", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
-    cv.putText(bgremove, "3) Remove Background", (10, 20),
+    cv.putText(bgremove, "4) Remove Background", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
     cv.putText(edges, "5) Edge Detection", (10, 20),
