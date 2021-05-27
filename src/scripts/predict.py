@@ -129,6 +129,7 @@ if __name__ == "__main__":
     result = resized.copy()
     gray = cv.cvtColor(resized, cv.COLOR_BGR2GRAY)
     gray3 = cv.cvtColor(gray, cv.COLOR_GRAY2BGR)
+    bgremove = cv.regiongrowing(gray3)
     edges = cv.Canny(gray3, 100, 200)
 
     cv.putText(img, "1) Original", (10, 20),
@@ -140,7 +141,10 @@ if __name__ == "__main__":
     cv.putText(gray3, "3) Grayscaled", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
-    cv.putText(edges, "3) Edge Detection", (10, 20),
+    cv.putText(bgremove, "3) Remove Background", (10, 20),
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+
+    cv.putText(edges, "5) Edge Detection", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     cv.putText(result, "{} {:.4f}%".format(labels[top_k[0]], results[top_k[0]] * 100), (10, 20),
@@ -149,6 +153,7 @@ if __name__ == "__main__":
     cv.imshow('original', img)
     cv.imshow('resized', resized)
     cv.imshow('grayscaled', gray3)
+    cv.imshow('Remove Background', bgremove)
     cv.imshow('edges', edges)
     cv.imshow('result', result)
 
@@ -167,3 +172,5 @@ if __name__ == "__main__":
             break
 
     cv.destroyAllWindows()
+
+
