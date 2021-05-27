@@ -8,6 +8,7 @@ import numpy as np
 import argparse
 import time
 import tensorflow.compat.v1 as tf
+from matplotlib import pyplot as plt
 tf.disable_v2_behavior()
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
@@ -129,8 +130,11 @@ if __name__ == "__main__":
     result = resized.copy()
     gray = cv.cvtColor(resized, cv.COLOR_BGR2GRAY)
     gray3 = cv.cvtColor(gray, cv.COLOR_GRAY2BGR)
-    bgremove = cv.regiongrowing(gray3)
     edges = cv.Canny(gray3, 100, 200)
+
+    sift = cv.SIFT_create()
+    kp = sift.detect(edges, None)
+    fextract = cv.drawKeypoints(edges, kp, None)
 
     cv.putText(img, "1) Original", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
@@ -141,10 +145,10 @@ if __name__ == "__main__":
     cv.putText(gray3, "3) Grayscaled", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
-    cv.putText(bgremove, "4) Remove Background", (10, 20),
-               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
-
     cv.putText(edges, "5) Edge Detection", (10, 20),
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+
+    cv.putText(fextract, "5) Feature Extraction", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     cv.putText(result, "{} {:.4f}%".format(labels[top_k[0]], results[top_k[0]] * 100), (10, 20),
@@ -153,8 +157,8 @@ if __name__ == "__main__":
     cv.imshow('original', img)
     cv.imshow('resized', resized)
     cv.imshow('grayscaled', gray3)
-    cv.imshow('Remove Background', bgremove)
     cv.imshow('edges', edges)
+    cv.imshow('feature', fextract)
     cv.imshow('result', result)
 
     print('\nEvaluation time (1-image): {:.3f}s\n'.format(end-start))
@@ -172,5 +176,4 @@ if __name__ == "__main__":
             break
 
     cv.destroyAllWindows()
-
-
+    
