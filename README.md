@@ -11,6 +11,7 @@
 
 1. Download dataset with from [here](https://joog.uno/ticks_ds1)
 2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
+3. rename all files to .jpg with `dir | Rename-Item -NewName { $_.name -replace ".PNG",".jpg"}`
 
 ## Retrain and Conversion
 
