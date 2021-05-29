@@ -145,6 +145,10 @@ if __name__ == "__main__":
     kp = sift.detect(edges, None)
     fextract = cv.drawKeypoints(edges, kp, None)
 
+    sift2 = cv.SIFT_create()
+    kp2 = sift2.detect(bgremove, None)
+    fextract2 = cv.drawKeypoints(bgremove, kp2, None)
+
     cv.putText(img, "1) Original", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
@@ -155,12 +159,15 @@ if __name__ == "__main__":
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
     cv.putText(bgremove, "4) Background Remove", (10, 20),
-               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     cv.putText(edges, "5) Edge Detection", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     cv.putText(fextract, "5) Feature Extraction", (10, 20),
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+
+    cv.putText(fextract2, "5) Feature Extraction 2", (10, 20),     
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
     cv.putText(result, "{} {:.4f}%".format(labels[top_k[0]], results[top_k[0]] * 100), (10, 20),
@@ -172,6 +179,7 @@ if __name__ == "__main__":
     cv.imshow('bgremove', bgremove)
     cv.imshow('edges', edges)
     cv.imshow('feature', fextract)
+    cv.imshow('feature2', fextract2)
     cv.imshow('result', result)
 
     print('\nEvaluation time (1-image): {:.3f}s\n'.format(end-start))
