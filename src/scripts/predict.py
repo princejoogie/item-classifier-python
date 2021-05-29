@@ -130,7 +130,16 @@ if __name__ == "__main__":
     result = resized.copy()
     gray = cv.cvtColor(resized, cv.COLOR_BGR2GRAY)
     gray3 = cv.cvtColor(gray, cv.COLOR_GRAY2BGR)
-    edges = cv.Canny(gray3, 100, 200)
+
+    mask = np.zeros(gray3.shape[:2],np.uint8)
+    bgdModel = np.zeros((1,65),np.float64)
+    fgdModel = np.zeros((1,65),np.float64)
+    rect = (50,50,450,290)
+    cv.grabCut(gray3,mask,rect,bgdModel,fgdModel,5,cv.GC_INIT_WITH_RECT)
+    mask2 = np.where((mask==2)|(mask==0),0,1).astype('uint8')
+    bgremove = gray3*mask2[:,:,np.newaxis]
+
+    edges = cv.Canny(bgremove, 100, 200)
 
     sift = cv.SIFT_create()
     kp = sift.detect(edges, None)
@@ -145,6 +154,9 @@ if __name__ == "__main__":
     cv.putText(gray3, "3) Grayscaled", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
+    cv.putText(bgremove, "4) Background Remove", (10, 20),
+               cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+
     cv.putText(edges, "5) Edge Detection", (10, 20),
                cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
@@ -157,6 +169,7 @@ if __name__ == "__main__":
     cv.imshow('original', img)
     cv.imshow('resized', resized)
     cv.imshow('grayscaled', gray3)
+    cv.imshow('bgremove', bgremove)
     cv.imshow('edges', edges)
     cv.imshow('feature', fextract)
     cv.imshow('result', result)
