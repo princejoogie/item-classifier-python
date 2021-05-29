@@ -9,7 +9,7 @@
 
 ## Getting the tick dataset
 
-1. Download dataset with from [here](https://joog.uno/ticks_ds1)
+1. Download dataset from [here](https://joog.uno/ticks_ds1)
 2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
 3. rename all files to .jpg with `dir | Rename-Item -NewName { $_.name -replace ".PNG",".jpg"}`
 
@@ -43,7 +43,7 @@ python -m scripts.retrain ^
 ```{python}
 python -m scripts.quantize_graph ^
   --input=tf_files/tick_graph.pb ^
-  --output=tf_files/tick_graph.pb ^
+  --output=tf_files/quantized_tick_graph.pb ^
   --output_node_names=final_result ^
   --mode=weights_rounded
 ```
@@ -54,7 +54,7 @@ python -m scripts.quantize_graph ^
 tensorflowjs_converter ^
   --input_format=tf_frozen_model ^
   --output_node_names=final_result ^
-  tf_files/tick_graph.pb ^
+  tf_files/quantized_tick_graph.pb ^
   tf_files/web
 ```
 
