@@ -1,4 +1,4 @@
-# item-classifier-pythong
+# item-classifier-python
 
 A reusable library for classifying different objects
 
