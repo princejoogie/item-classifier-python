@@ -1,4 +1,6 @@
-# Tick Classifier Python Training
+# item-classifier-pythong
+
+A reusable library for classifying different objects
 
 ## Install python requirements with Anaconda
 
