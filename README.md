@@ -11,8 +11,8 @@ A reusable library for classifying different objects
 
 ## Getting the tick dataset
 
-1. Download dataset from [here](https://joog.uno/ticks_ds1)
-2. Extract the `tick_photos.zip` into `src/tf_files/tick_photos`
+1. Obtain your dataset.
+2. Extract the `dataset.zip` into `src/tf_files/dataset`
 3. rename all files to .jpg with `dir | Rename-Item -NewName { $_.name -replace ".PNG",".jpg"}`
 
 ## Retrain and Conversion
@@ -29,11 +29,11 @@ tensorboard --logdir tf_files/training_summaries &
 
 ```{python}
 python -m scripts.retrain ^
-  --image_dir=tf_files/tick_photos ^
+  --image_dir=tf_files/dataset ^
   --model_dir=tf_files/models ^
   --architecture=mobilenet_0.50_224 ^
-  --output_graph=tf_files/tick_graph.pb ^
-  --output_labels=tf_files/tick_labels.txt ^
+  --output_graph=tf_files/model_graph.pb ^
+  --output_labels=tf_files/model_labels.txt ^
   --bottleneck_dir=tf_files/bottlenecks ^
   --summaries_dir=tf_files/training_summaries/mobilenet_0.50_224 ^
   --how_many_training_steps=400 ^
@@ -44,8 +44,8 @@ python -m scripts.retrain ^
 
 ```{python}
 python -m scripts.quantize_graph ^
-  --input=tf_files/tick_graph.pb ^
-  --output=tf_files/quantized_tick_graph.pb ^
+  --input=tf_files/model_graph.pb ^
+  --output=tf_files/quantized_model_graph.pb ^
   --output_node_names=final_result ^
   --mode=weights_rounded
 ```
@@ -56,7 +56,7 @@ python -m scripts.quantize_graph ^
 tensorflowjs_converter ^
   --input_format=tf_frozen_model ^
   --output_node_names=final_result ^
-  tf_files/quantized_tick_graph.pb ^
+  tf_files/quantized_model_graph.pb ^
   tf_files/web
 ```
 
@@ -64,9 +64,9 @@ tensorflowjs_converter ^
 
 ```{python}
 python -m scripts.predict ^
-  --image=tf_files/tick_photos/brown_tick/27.PNG ^
-  --labels=tf_files/tick_labels.txt ^
-  --graph=tf_files/tick_graph.pb
+  --image=tf_files/dataset/your_image.jpg ^
+  --labels=tf_files/model_labels.txt ^
+  --graph=tf_files/model_graph.pb
 ```
 
 The converted tensorflowjs model is in `tf_files/web` directory
